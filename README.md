@@ -6,6 +6,11 @@ Cette application est un système de chat en socket Java très simple. Il est co
 
 L'application lance un serveur sur votre adresse local (127.0.0.1) au port 10080.
 
+### Commandes 
+- /quit : se déconnecter du chat.
+- il n'est pas possible d'avoir plus d'un utilisateur ayant le même pseudo connecté en même temps sur le serveur.
+- un pseudo doit être valide (au moins 3 caractères, pas plus de 16, sans caracètes spéciaux : $, *, &, /, etc).
+
 ## Installation
 
 - Pour lancer l'application, lancez votre serveur en cliquant sur run-server.command (dist/run-serveur.command)
