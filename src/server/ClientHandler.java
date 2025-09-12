@@ -9,9 +9,9 @@ import java.util.logging.Logger;
 
 class ClientHandler extends Thread {
     private final ServeurSocket serveurSocket;
-    // Map de sockets client + leur OutPut stream
+    // Clients connectés : Map de sockets client + leur OutPut stream
     // PrintWrite est utilisé pour son auto-flush + encodage (UTF8) plus simple que Output Stream
-    private final ConcurrentHashMap<Socket, PrintWriter> clients = new ConcurrentHashMap<>();
+    private final ConcurrentHashMap<Socket, PrintWriter> clientsConnected = new ConcurrentHashMap<>();
     private final Set<String> setPseudo = ConcurrentHashMap.newKeySet();
 
     public ClientHandler(ServeurSocket serveurSocket) {
@@ -63,11 +63,11 @@ class ClientHandler extends Thread {
                 break; // pseudo OK et unique
             }
 
-            clients.put(client, out); // On ajoute notre client dans le setClient. Idéal pour détecter les doublons.
+            clientsConnected.put(client, out); // On ajoute notre client dans le setClient. Idéal pour détecter les doublons.
             System.out.println("Client accepté (" + pseudo + ") depuis port distant " + client.getPort());
 
             // MessageHandler va gérer les IO Stream du client. ClientHandler lui laisse la main.
-            MessageHandler mh = new MessageHandler(pseudo, client, in, out, clients, setPseudo);
+            MessageHandler mh = new MessageHandler(pseudo, client, in, out, clientsConnected, setPseudo);
             // Thread séparé
             mh.start();
 

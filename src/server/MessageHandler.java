@@ -63,8 +63,12 @@ public class MessageHandler extends Thread {
         } catch (IOException e) {
             Logger.getLogger(MessageHandler.class.getName()).log(Level.INFO, "Client déconnecté", e);
         } finally {
-            try { client.close(); } catch (IOException ignored) {}
-            clients.remove(client);
+            try {
+                client.close(); // Libérer le socket.
+                out.close(); // Libérer le flux Out.
+                in.close(); // Libérer le flux In.
+            } catch (IOException ignored) {}
+            clients.remove(client); // On retire le client de la liste de clients connectés
             setPseudo.remove(pseudo);
             broadcast(pseudo + " a quitté la conversation" );
         }
