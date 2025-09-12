@@ -6,6 +6,11 @@ Cette application est un système de chat en socket Java très simple. Il est co
 
 L'application lance un serveur sur votre adresse local (127.0.0.1) au port 10080.
 
+### Commandes 
+- /quit : se déconnecter du chat.
+- il n'est pas possible d'avoir plus d'un utilisateur ayant le même pseudo connecté en même temps sur le serveur.
+- un pseudo doit être valide (au moins 3 caractères, pas plus de 16, sans caracètes spéciaux : $, *, &, /, etc).
+
 ## Installation
 
 - Pour lancer l'application, lancez votre serveur en cliquant sur run-server.command (dist/run-serveur.command)
@@ -17,13 +22,15 @@ L'application lance un serveur sur votre adresse local (127.0.0.1) au port 10080
 
 # Hiérarchie
 
+
+```plaintext
 ai13-devoir-socket/
-├─ dist/
+├─ dist/ # fichiers de distributions jar
 │  ├─ client.jar
 │  ├─ server.jar
 │  ├─ run-client.command
 │  └─ run-server.command
-├─ launch-application/ (obsolète, utiliser /dist/ruun-xxx.command
+├─ launch-application/ # (obsolète, utiliser dist/run-xxxx.command)
 │  ├─ launch-client.command
 │  ├─ launch-client.sh
 │  ├─ launch-server.command
@@ -35,10 +42,11 @@ ai13-devoir-socket/
 │  └─ sources.txt
 ├─ src/
 │  ├─ client/
-│  │  ├─ ClientSocket.java  # création du socket client
-│  │  ├─ MessageReceptor.java # écoute des messages reçues par le client
-│  │  └─ UserInputHandler.java # gère les entrées du client pour l'envoi vers le serveur
+│  │  ├─ ClientSocket.java # création du client socket
+│  │  ├─ MessageReceptor.java # gère les messages reçus par le serveur
+│  │  └─ UserInputHandler.java # gère les messages envoyés par le client
 │  └─ server/
-│     ├─ ClientHandler.java # gère l'ensemble des clients (vérification pseudo).
-│     ├─ MessageHandler.java # gère les fluxs sockets des clients.
-│     └─ ServeurSocket.java # créations du serveur socket.
+│     ├─ ClientHandler.java # gère l'ensemble des clients (vérification pseudo)
+│     ├─ MessageHandler.java # gère les fluxs IO stream des clients.
+│     └─ ServeurSocket.java # création du serveur socket. 
+└─ .idea/                    # fichiers de configuration IDE
