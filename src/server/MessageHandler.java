@@ -58,7 +58,7 @@ public class MessageHandler extends Thread {
                     System.out.println("Client déconnecté (" + pseudo + ") depuis port distant " + client.getPort());
                     break;
                 }
-                broadcast(pseudo + "a dit : " + line);
+                broadcast(pseudo + " a dit : " + line);
             }
         } catch (IOException e) {
             Logger.getLogger(MessageHandler.class.getName()).log(Level.INFO, "Client déconnecté", e);
