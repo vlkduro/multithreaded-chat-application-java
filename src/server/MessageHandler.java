@@ -7,10 +7,12 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.function.Consumer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+
+// MessageHandler s'occupe de l'envoi et de la réception des messages sur les sockets clients.
+// Il contient aussi la fonction broadcast pour envoyer à tous les clients.
 
 public class MessageHandler extends Thread {
     private final String pseudo;
@@ -34,6 +36,8 @@ public class MessageHandler extends Thread {
         this.setPseudo = setPseudo;
     }
 
+    // Principe du broadcast
+    // Fait une boucle sur la liste des clients, récupère leur OutStream et envoie un message à tous les clients.
     private void broadcast(String msg) {
         for (PrintWriter w : clients.values()) {
             w.println(msg);
@@ -51,6 +55,7 @@ public class MessageHandler extends Thread {
             while ((line = in.readLine()) != null) {
                 if ("/quit".equalsIgnoreCase(line.trim())) {
                     out.println("Au revoir !");
+                    System.out.println("Client déconnecté (" + pseudo + ") depuis port distant " + client.getPort());
                     break;
                 }
                 broadcast(pseudo + "a dit : " + line);
@@ -61,7 +66,7 @@ public class MessageHandler extends Thread {
             try { client.close(); } catch (IOException ignored) {}
             clients.remove(client);
             setPseudo.remove(pseudo);
-            broadcast(pseudo + "a quitté la conversation" );
+            broadcast(pseudo + " a quitté la conversation" );
         }
     }
 }

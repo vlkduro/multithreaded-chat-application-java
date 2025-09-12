@@ -6,7 +6,6 @@ import java.util.logging.Logger;
 
 public class ClientSocket {
 
-    private String pseudo = "NoName"; // Le pseudo ne doit pas être modifiable en dehors de la classe.
     private Socket socket;
 
     public ClientSocket(String host, int port) throws IOException {
@@ -16,9 +15,6 @@ public class ClientSocket {
     public Socket getSocket() {
         return socket;
     }
-
-    public String getPseudo() {return pseudo;}
-    public void setPseudo(String pseudo) {this.pseudo = pseudo;}
 
     public static void main(String[] args) {
 

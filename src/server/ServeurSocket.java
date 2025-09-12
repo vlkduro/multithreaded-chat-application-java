@@ -21,7 +21,7 @@ public class ServeurSocket {
     }
 
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         try {
             ServeurSocket serveurSocket = new ServeurSocket(10080); // socket conn
             ClientHandler clientHandler = new ClientHandler(serveurSocket);
