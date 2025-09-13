@@ -23,6 +23,8 @@ class ClientHandler extends Thread {
         while (true) {
             try {
                 // L'acceptation de nouveaux clients est gérée par un thread car .accept() est bloquante.
+                // Note : cette méthode 1 socket/thread n'est pas scalable, mais dans ce contexte de quelques clients
+                // cela fonctionne bien. 
                 Socket client = serveurSocket.getSocket().accept();
                 // On gère la vérification du nouveau client dans un nouveau thread pour laisser les autres arriver.
                 new Thread(() -> handleClient(client), "client-" + client.getPort()).start();
