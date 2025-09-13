@@ -74,7 +74,9 @@ class ClientHandler extends Thread {
         } catch (IOException e) {
             java.util.logging.Logger.getLogger(ClientHandler.class.getName())
                     .log(java.util.logging.Level.INFO, "Client déconnecté pendant le handshake", e);
-            try { client.close(); } catch (IOException ignored) {}
+            try {
+                client.close();
+            } catch (IOException ignored) {}
         }
     }
 
