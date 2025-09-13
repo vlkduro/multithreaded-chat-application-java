@@ -6,9 +6,12 @@ Auteur : Quentin VALAKOU, Université de Technologie de Compiègne | Automne 202
 
 Cette application est un système de chat en socket Java très simple. Il est composé d'un serveur (server.jar) et d'un client (client.jar).
 
-L'application lance un serveur sur votre adresse local (127.0.0.1) au port 10080.
+Le serveur écoute sur votre adresse locale (127.0.0.1) au port 10080.
 
-### Commandes
+- Il ne peut exister qu'une seule instance de serveur (server.jar) qui tourne à la fois.
+- Il peut y avoir plusieurs clients connectés sur le même serveur (lancez plusieurs fois le client).
+
+##### Commandes : 
 
 - /quit : se déconnecter du chat.
 - il n'est pas possible d'avoir plus d'un utilisateur ayant le même pseudo connecté en même temps sur le serveur.
@@ -16,12 +19,12 @@ L'application lance un serveur sur votre adresse local (127.0.0.1) au port 10080
 
 ## Installation
 
-#### MacOS/Linux
+##### MacOS/Linux :
 
-- Pour lancer l'application, lancez votre serveur en cliquant sur run-server.command (dist/run-server.command)
+- Pour lancer l'application, lancez votre serveur en cliquant sur run-server.bat (dist/run-server.command)
 - Ensuite lancez un ou plusieurs clients avec run-client.command (dist/run-client.command).
 
-#### Windows
+##### Windows : 
 
 - Pour lancer l'application, lancez votre serveur en cliquant sur run-server.command (dist/run-serveur.bat)
 - Ensuite lancez un ou plusieurs client avec run-client.bat (dist/run-client.bat).
