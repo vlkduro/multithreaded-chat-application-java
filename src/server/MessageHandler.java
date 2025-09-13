@@ -48,6 +48,7 @@ public class MessageHandler extends Thread {
     public void run() {
         try {
             broadcast(">>> " + pseudo + " a rejoint le chat");
+            System.out.println("Il y a " + setPseudo.size() + " utilisateur(s) connecté(s).");
             out.println("Bienvenue " + pseudo + " ! Tapez /quit pour quitter.");
             out.println("------------------------");
             out.flush();
@@ -59,6 +60,7 @@ public class MessageHandler extends Thread {
                     break;
                 }
                 broadcast(pseudo + " a dit : " + line);
+                System.out.println("Client ["+ pseudo +"] a dit : " + line);
             }
         } catch (IOException e) {
             Logger.getLogger(MessageHandler.class.getName()).log(Level.INFO, "Client déconnecté", e);
@@ -71,6 +73,7 @@ public class MessageHandler extends Thread {
             clients.remove(client); // On retire le client de la liste de clients connectés
             setPseudo.remove(pseudo);
             broadcast(pseudo + " a quitté la conversation" );
+            System.out.println("Il reste  " + setPseudo.size() + " connecté(s).");
         }
     }
 }

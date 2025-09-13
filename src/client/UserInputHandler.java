@@ -17,7 +17,8 @@ public class UserInputHandler extends Thread {
     @Override
     public void run() {
         try {
-            // On utilise un OutPutStream de type PrintWrite, plus simple pour gérer les bytes.
+            // On utilise un OutPutStream de type PrintWriter, plus simple pour gérer les bytes.
+            // PrintWriter bufferise déjà -> on a pas besoin de BufferedWriter.
             // La gestion du pseudo est laissée du côté serveur, c'est lui qui enregistre le pseudo et le vérifie.
             PrintWriter out = new PrintWriter(clientSocket.getSocket().getOutputStream(), true); // auto-flush
             Scanner input = new Scanner(System.in,  "UTF-8");
