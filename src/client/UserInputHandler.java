@@ -2,8 +2,6 @@ package client;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,6 +25,7 @@ public class UserInputHandler extends Thread {
                 if ("/quit".equalsIgnoreCase(message)) {
                     out.println("/quit");
                     clientSocket.getSocket().close();
+                    this.interrupt();
                     break;
                 }
                 // Laisse le serveur préfixer avec le pseudo
