@@ -1,5 +1,10 @@
 # Java Multi-threaded Chat Application
 
+## Documentation 
+
+French version available at : docs/README-fr.md
+Version française : docs/README-fr.md
+
 ## Overview
 This project is a simple **command-line chat system** built with Java sockets.  
 It consists of a **server** (`server.jar`) and a **client** (`client.jar`).  
@@ -55,4 +60,4 @@ To modify and rebuild the project:
 
 ---
 
-⚡ Ready to use and easy to extend for experimenting with **CLI-based socket programming in Java**.  
+Ready to use and easy to extend for experimenting with **CLI-based socket programming in Java**.  
