@@ -19,58 +19,59 @@ Le serveur écoute sur votre adresse locale (127.0.0.1) au port 10080.
 
 ## Installation
 
-##### MacOS/Linux :
+Ce projet utilise Maven.
+Il n'est pas nécessaire de l'installer.
+A la racine du projet :
 
-- Pour lancer l'application, lancez votre serveur en cliquant sur run-server.bat (dist/run-server.command)
-- Ensuite lancez un ou plusieurs clients avec run-client.command (dist/run-client.command).
+1. Pour build (optionnel).
+   Si vous voulez rebuild après modification :
 
-##### Windows :
+   ```bash
+   mvnw clean package
+   ```
 
-- Pour lancer l'application, lancez votre serveur en cliquant sur run-server.command (dist/run-serveur.bat)
-- Ensuite lancez un ou plusieurs client avec run-client.bat (dist/run-client.bat).
-- Note : par défaut, les .bat ne sont pas dans le Git. Créez les en lançant "compile-deploy.cmd".
+   Cela va créer deux fichiers JARs exécutables :
 
-#### Attention
+   ```bash
+   server/target/server-1.0.0.jar
+   client/target/client-1.0.0.jar
+   ```
 
-Il est possible que les scripts ne se lancent pas si votre machine n'autorise pas l'exécution. Pour cela, dans la racine du projet, lancez :
+2. Lancer le serveur :
+   ```bash
+   java -jar server/target/server-1.0.0.jar
+   ```
+3. Lancer un ou plusieurs clients :
+   ```bash
+   java -jar client/target/client-1.0.0.jar
+   ```
 
-```bash
-chmod +x dist/run-server.command
+## Arborescence du projet
 
-chmod +x dist/run-client.command
+```
+project-root/
+├── pom.xml                  # Parent Maven build file
+│
+├── server/                  # Server module
+│   ├── pom.xml
+│   └── src/main/java/...    # Server source code
+│
+├── client/                  #      Client module
+│   ├── pom.xml
+│   └── src/main/java/...    # Client source code
+│
+├── docs/                    # Documentation
+└── README.md                # Project documentation
 ```
 
-## Modifier et recompiler
+## Development
 
-- Il est possible de modifier le code source et de recompiler facilement. Pour cela, sauvegardez vos modifications et lancez "compile-deploy.command" pour Mac/Linux et "compile-deploy.cmd" pour Windows. Cela compilera le code et créera les nouveaux .jar.
+- Modifier le code source : _server/src/main/java_ ou _client/src/main/java_
+- Rebuild avec Maven :
+  ```bash
+  mvnw clean package
+  ```
 
-# Hiérarchie
+---
 
-```plaintext
-ai13-devoir-socket/
-├─ dist/ # fichiers de distributions jar
-│  ├─ client.jar
-│  ├─ server.jar
-│  ├─ run-client.command
-│  └─ run-server.command
-├─ launch-application/ # (obsolète, utiliser dist/run-xxxx.command)
-│  ├─ launch-client.command
-│  ├─ launch-client.sh
-│  ├─ launch-server.command
-│  ├─ launch-server.sh
-│  └─ run.sh
-├─ out/
-│  ├─ client/                # classes compilées
-│  ├─ server/                # classes compilées
-│  └─ sources.txt
-├─ src/
-│  ├─ client/
-│  │  ├─ ClientSocket.java # création du client socket
-│  │  ├─ MessageReceptor.java # gère les messages reçus par le serveur
-│  │  └─ UserInputHandler.java # gère les messages envoyés par le client
-│  └─ server/
-│     ├─ ClientHandler.java # gère l'ensemble des clients (vérification pseudo)
-│     ├─ MessageHandler.java # gère les fluxs IO stream des clients.
-│     └─ ServeurSocket.java # création du serveur socket.
-└─ .idea/                    # fichiers de configuration IDE
-```
+Auteur : Quentin Valakou

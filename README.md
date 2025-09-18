@@ -77,4 +77,4 @@ project-root/
 
 ---
 
-Ready to use and easy to extend for experimenting with **CLI-based socket programming in Java**.
+Author : Quentin Valakou
