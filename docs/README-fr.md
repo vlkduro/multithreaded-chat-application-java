@@ -11,11 +11,11 @@ Le serveur écoute sur votre adresse locale (127.0.0.1) au port 10080.
 - Il ne peut exister qu'une seule instance de serveur (server.jar) qui tourne à la fois.
 - Il peut y avoir plusieurs clients connectés sur le même serveur (lancez plusieurs fois le client).
 
-##### Commandes : 
+##### Commandes :
 
 - /quit : se déconnecter du chat.
 - il n'est pas possible d'avoir plus d'un utilisateur ayant le même pseudo connecté en même temps sur le serveur.
-- un pseudo doit être valide (au moins 3 caractères, pas plus de 16, sans caracètes spéciaux : $, *, &, /, etc).
+- un pseudo doit être valide (au moins 3 caractères, pas plus de 16, sans caracètes spéciaux : $, \*, &, /, etc).
 
 ## Installation
 
@@ -24,7 +24,7 @@ Le serveur écoute sur votre adresse locale (127.0.0.1) au port 10080.
 - Pour lancer l'application, lancez votre serveur en cliquant sur run-server.bat (dist/run-server.command)
 - Ensuite lancez un ou plusieurs clients avec run-client.command (dist/run-client.command).
 
-##### Windows : 
+##### Windows :
 
 - Pour lancer l'application, lancez votre serveur en cliquant sur run-server.command (dist/run-serveur.bat)
 - Ensuite lancez un ou plusieurs client avec run-client.bat (dist/run-client.bat).
@@ -71,6 +71,6 @@ ai13-devoir-socket/
 │  └─ server/
 │     ├─ ClientHandler.java # gère l'ensemble des clients (vérification pseudo)
 │     ├─ MessageHandler.java # gère les fluxs IO stream des clients.
-│     └─ ServeurSocket.java # création du serveur socket. 
+│     └─ ServeurSocket.java # création du serveur socket.
 └─ .idea/                    # fichiers de configuration IDE
 ```

@@ -1,4 +1,4 @@
-package server;
+package com.vlkduro.chat.server;
 
 
 import java.io.BufferedReader;

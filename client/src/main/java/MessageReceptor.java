@@ -1,4 +1,4 @@
-package client;
+package com.vlkduro.chat.client;
 
 import java.io.IOException;
 import java.io.InputStream;
