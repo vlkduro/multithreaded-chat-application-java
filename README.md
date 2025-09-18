@@ -2,8 +2,8 @@
 
 ## Documentation
 
-French version available at : docs/README-fr.md
-Version française : docs/README-fr.md
+- French version available at : [README-fr.md](docs/README-fr.md)
+- Version française : [README-fr.md](docs/README-fr.md)
 
 ## Overview
 
