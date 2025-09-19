@@ -25,6 +25,10 @@ By default, the server runs on the local address `127.0.0.1` at port `10080`.
 
 This project uses Maven.
 From the root folder, run :
+ ```bash
+   git clone https://github.com/vlkduro/multithreaded-chat-application-java.git
+   ```
+
 
 1. Build the project (optional).
    If you want to rebuild the project after modification :
